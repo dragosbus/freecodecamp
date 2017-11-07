@@ -33,7 +33,7 @@ function getQuote() {
     error: function () {
       changeColor();
       QUOTE.css('color','#df4d4d');
-      QUOTE.text("There is an error!Please try later!");
+      QUOTE.text("There is an error!Please try later!!");
     }
   });
 }
