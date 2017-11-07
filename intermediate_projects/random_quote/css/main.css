@@ -4,7 +4,9 @@ html {
   box-sizing: border-box;
 }
 
-*,*::after,*::before {
+*,
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
@@ -18,27 +20,26 @@ body {
 a {
   color: #fff;
   text-decoration: none;
-  display: block;
   border-radius: 5px;
   font-size: 1.35rem;
   padding: 10px 20px;
+  text-align: center;
   animation: changeColor 1s;
   transition: all 0.5s ease-out;
 }
 
 .card {
-  width: 65%;
+  width: 95%;
+  max-height: 95vh;
   margin: auto auto;
   padding: 20px;
   border-radius: 5px;
   background: #fff;
-  animation: changeColor 1.5s;
-  transition: all 1.5s ease-out;
+  box-shadow: 0 0 1em 0.5em rgba(3, 3, 3, 0.15);
 }
 
 .quote {
-  font-size: 2.5rem;
-  text-align: center;
+  font-size: 1.75rem;
 }
 
 .quote::before {
@@ -48,9 +49,10 @@ a {
 }
 
 .cite {
-  margin-left: 70%;
   font-size: 1.5rem;
   font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .buttons {
@@ -58,14 +60,10 @@ a {
   justify-content: center;
 }
 
-.getQuote {
-	margin-left: auto;
-  order: 3;
-}
-
-.quote-tweet {
-	margin-left: 30px;
-  margin-right: 40px;
+.getQuote,
+.quote-tweet,
+.quote-tumblr {
+  margin: 10px auto;
 }
 
 button {
@@ -74,12 +72,54 @@ button {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
+  outline: none;
   animation: changeColor 1s;
   transition: all 0.5s ease-out;
 }
 
 @keyframes changeColor {
-  0% {opacity: 0.1;}
-  50%{opacity: 0.5;}
-  100%{opacity:1;}
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media(min-width: 768px) {
+  .card {
+    width: 65%;
+  }
+  
+  .quote {
+    font-size: 2.5rem;
+  }
+  
+  .cite {
+    margin-left: 70%;
+    margin-right: 0;
+  }
+
+  .buttons {
+    flex-direction: row;
+  }
+
+  .getQuote {
+    margin-left: auto;
+    margin-right: 0;
+    order: 3;
+  }
+
+  .quote-tweet {
+    margin-left: 30px;
+    margin-right: 20px;
+  }
+
+  .quote-tumblr {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
 }
