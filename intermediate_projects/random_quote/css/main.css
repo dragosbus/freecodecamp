@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+
+html {
+  box-sizing: border-box;
+}
+
+*,*::after,*::before {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  animation: changeColor 1s;
+  transition: all 0.5s ease-out;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  font-size: 1.35rem;
+  padding: 10px 20px;
+  animation: changeColor 1s;
+  transition: all 0.5s ease-out;
+}
+
+.card {
+  width: 65%;
+  margin: auto auto;
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+  animation: changeColor 1.5s;
+  transition: all 1.5s ease-out;
+}
+
+.quote {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.quote::before {
+  content: "\201D";
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.cite {
+  margin-left: 70%;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.getQuote {
+	margin-left: auto;
+  order: 3;
+}
+
+.quote-tweet {
+	margin-left: 30px;
+  margin-right: 40px;
+}
+
+button {
+  font-size: 1.35rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  animation: changeColor 1s;
+  transition: all 0.5s ease-out;
+}
+
+@keyframes changeColor {
+  0% {opacity: 0.1;}
+  50%{opacity: 0.5;}
+  100%{opacity:1;}
+}
