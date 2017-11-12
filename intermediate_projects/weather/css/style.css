@@ -1,0 +1,81 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  background: #c6ffd5;
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 100%;
+  max-height: 100%;
+  height: 100vh;
+}
+
+.weather {
+  width: 90%;
+  margin: 10px auto;
+  background: rgba(255, 255, 255, 0.582);
+  border-radius: 5px;
+  padding: 30px;
+  box-shadow: 0 0 26px rgba(0, 0, 0, .33);
+}
+
+.city {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.65);
+  text-shadow: 0 0 26px rgba(0, 0, 0, 0.2);
+}
+
+.date,
+.condition {
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.temperature {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.btns {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.celsius,
+.far {
+  border: 2px solid #bfbfbf;
+  border-radius: 5px;
+  padding: 10px 40px;
+  font-size: 1.35rem;
+  color: #fff;
+  background: transparent;
+  transition: background 0.75s ease-in-out;
+}
+
+.celsius:hover,
+.far:hover {
+  background: rgba(2, 2, 2, 0.5);
+}
+
+/* Media querys */
+
+@media (min-width: 769px) {
+  .weather {
+    width: 65%;
+  }
+}
