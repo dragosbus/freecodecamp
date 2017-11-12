@@ -13,13 +13,19 @@ let minute = today.getMinutes();
 let days = ['Sunday','Monday','Tuesday','Wednesday','Thrusday','Friday','Saturday'];
 let dayNow = today.getDay();
 
-NOW.textContent = days[dayNow]+' ' + hour + ':' + minute;
+if(minute <10) {
+  NOW.textContent = days[dayNow]+' ' + hour + ':0' + minute;
+} else {
+  NOW.textContent = days[dayNow]+' ' + hour + ':' + minute;
+}
+
+
 
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(ajax);
   } else {
-    alert("Geolocation is not supported by this browser.");
+    error();
   }
 }
 getLocation();
