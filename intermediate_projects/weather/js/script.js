@@ -45,6 +45,7 @@ function ajax(position) {
   }
 }
 
+//Success handler
 function success(data) {
   let response = JSON.parse(data);
 
@@ -84,4 +85,9 @@ function success(data) {
     document.body.style.backgroundImage = bg + ",url('img/cloudy_night.jpg')";
   }
    
+}
+
+//Error handler
+function error() {
+  document.querySelector('.error').style.display ="block";
 }

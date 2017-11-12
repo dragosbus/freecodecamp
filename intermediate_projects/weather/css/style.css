@@ -25,7 +25,8 @@ body {
   height: 100vh;
 }
 
-.weather {
+.weather,
+.error {
   width: 90%;
   margin: 10px auto;
   background: rgba(255, 255, 255, 0.582);
@@ -70,6 +71,12 @@ body {
 .celsius:hover,
 .far:hover {
   background: rgba(2, 2, 2, 0.5);
+}
+
+.error {
+  background: rgba(255,17,40,0.75);
+  color: #fff;
+  display: none;
 }
 
 /* Media querys */

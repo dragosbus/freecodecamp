@@ -9,15 +9,20 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="btns">
-    <button class="celsius">C</button>
-    <button class="far">F</button>
+  <div class="container">
+      <div class="btns">
+          <button class="celsius">C</button>
+          <button class="far">F</button>
+        </div>
+        <div class="weather">
+          <h2 class="city"></h2>
+          <p class="date"></p>
+          <p class="condition"></p>
+          <p class="temperature"></p>
+        </div>
   </div>
-  <div class="weather">
-    <h2 class="city"></h2>
-    <p class="date"></p>
-    <p class="condition"></p>
-    <p class="temperature">2</p>
+  <div class="error">
+    <p>We can't respond to your request!Check if you have location activate!</p>
   </div>
   <script src="js/jQuery.js"></script>
   <script src="js/script.js"></script>
