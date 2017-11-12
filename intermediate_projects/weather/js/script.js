@@ -74,13 +74,13 @@ function success(data) {
     document.body.style.backgroundImage = bg + ",url('img/clear_day.jpg')";
   } else if(CONDITION.textContent === 'Rain' && hour < 17) {
     document.body.style.backgroundImage = bg + ",url('img/rainy_day.jpg')";
-  } else if(CONDITION.textContent === 'Cloudy' && hour < 17) {
+  } else if(CONDITION.textContent === 'Clouds' && hour < 17) {
     document.body.style.backgroundImage = bg + ",url('img/cloudy_day.jpg')";
   } else if(CONDITION.textContent === 'Clear' && hour > 17) {
     document.body.style.backgroundImage = bg + ",url('img/clear_night.jpg')";
   } else if(CONDITION.textContent === 'Rain' && hour > 17) {
     document.body.style.backgroundImage = bg + ",url('img/rainy_night.jpg')";
-  } else if(CONDITION.textContent === 'Cloudy' && hour > 17) {
+  } else if(CONDITION.textContent === 'Clouds' && hour > 17) {
     document.body.style.backgroundImage = bg + ",url('img/cloudy_night.jpg')";
   }
    
