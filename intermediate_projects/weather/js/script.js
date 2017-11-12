@@ -10,8 +10,10 @@ let today = new Date();
 let day = today.getDay();
 let hour = today.getHours();
 let minute = today.getMinutes();
+let days = ['Sunday','Monday','Tuesday','Wednesday','Thrusday','Friday','Saturday'];
+let dayNow = today.getDay();
 
-NOW.textContent = hour + ':' + minute;
+NOW.textContent = days[dayNow]+' ' + hour + ':' + minute;
 
 function getLocation() {
   if (navigator.geolocation) {
