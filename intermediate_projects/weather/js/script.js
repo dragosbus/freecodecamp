@@ -76,17 +76,41 @@ function success(data) {
   //Change the BG of body
   let bg = "linear-gradient(to bottom,rgba(0, 0, 0, 0.4), rgba(250, 250, 250, 0.2))";
   if (CONDITION.textContent === 'Clear' && hour < 17) {
-    document.body.style.backgroundImage = bg + ",url('img/clear_day.jpg')";
+    if(window.innerWidth < 800) {
+      document.body.style.backgroundImage = bg + ",url('img/sm/clear_day.jpg')";
+    } else {
+      document.body.style.backgroundImage = bg + ",url('img/clear_day.jpg')";
+    }
   } else if(CONDITION.textContent === 'Rain' && hour < 17) {
-    document.body.style.backgroundImage = bg + ",url('img/rainy_day.jpg')";
+    if(window.innerWidth < 800) {
+      document.body.style.backgroundImage = bg + ",url('img/sm/rainy_day.jpg')";
+    } else {
+      document.body.style.backgroundImage = bg + ",url('img/rainy_day.jpg')";
+    }
   } else if(CONDITION.textContent === 'Clouds' && hour < 17) {
-    document.body.style.backgroundImage = bg + ",url('img/cloudy_day.jpg')";
+    if(window.innerWidth < 800) {
+      document.body.style.backgroundImage = bg + ",url('img/sm/cloudy_day.jpg')";
+    } else {
+      document.body.style.backgroundImage = bg + ",url('img/cloudy_day.jpg')";
+    }
   } else if(CONDITION.textContent === 'Clear' && hour >= 17) {
-    document.body.style.backgroundImage = bg + ",url('img/clear_night.jpg')";
+    if(window.innerWidth < 800) {
+      document.body.style.backgroundImage = bg + ",url('img/sm/clear_night.jpg')";
+    } else {
+      document.body.style.backgroundImage = bg + ",url('img/clear_night.jpg')";
+    }
   } else if(CONDITION.textContent === 'Rain' && hour >= 17) {
-    document.body.style.backgroundImage = bg + ",url('img/rainy_night.jpg')";
+    if(window.innerWidth < 800) {
+      document.body.style.backgroundImage = bg + ",url('img/sm/rainy_night.jpg')";
+    } else {
+      document.body.style.backgroundImage = bg + ",url('img/rainy_night.jpg')";
+    }
   } else if(CONDITION.textContent === 'Clouds' && hour >= 17) {
-    document.body.style.backgroundImage = bg + ",url('img/cloudy_night.jpg')";
+    if(window.innerWidth < 800) {
+      document.body.style.backgroundImage = bg + ",url('img/sm/cloudy_night.jpg')";
+    } else {
+      document.body.style.backgroundImage = bg + ",url('img/cloudy_night.jpg')";
+    }
   }
    
 }
