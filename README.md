@@ -8,5 +8,5 @@ There you find my projects from [freecodecamp](https://www.freecodecamp.org/)
 ## Weather website
 [weather-app](https://dragosbus.github.io/freecodecamp/intermediate_projects/weather/)
 
-##Wikipedia Search app
+## Wikipedia Search app
 [wikipedia-app](https://dragosbus.github.io/freecodecamp/intermediate_projects/wikipedia/)
