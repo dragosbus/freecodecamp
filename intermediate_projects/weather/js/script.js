@@ -95,6 +95,8 @@ function success(data) {
     bodyBG('rainy_night.jpg');
   } else if (CONDITION.textContent === 'Clouds' && hour >= 17) {
     bodyBG('cloudy_night.jpg');
+  }else if (CONDITION.textContent === 'Fog') {
+    bodyBG('fog.jpg');
   }
 
 }
