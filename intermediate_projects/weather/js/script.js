@@ -5,6 +5,8 @@ const CONDITION = document.querySelector('.condition');
 const NOW = document.querySelector('.date');
 const BTNS = document.querySelector('.btns');
 let url;
+let lat;
+let long;
 
 let today = new Date();
 let day = today.getDay();
@@ -19,24 +21,43 @@ if (minute < 10) {
   NOW.textContent = days[dayNow] + ' ' + hour + ':' + minute;
 }
 
-function getLocation() {
+(function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(ajax);
+    navigator.geolocation.getCurrentPosition(ajax, aError);
   } else {
     error();
   }
+}());
+
+function aError() {
+  url = 'http://api.openweathermap.org/data/2.5/weather?q=London&appid=08d6b636cccc477260e8ab2e95047782';
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = myAjax;
+  xhr.open('GET', url);
+  xhr.send();
+
+  function myAjax() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        success(xhr.responseText);
+      } else {
+        error();
+      }
+    }
+  }
 }
-getLocation();
+
 
 function ajax(position) {
-  let lat = position.coords.latitude;
-  let long = position.coords.longitude;
+  lat = position.coords.latitude;
+  long = position.coords.longitude;
   url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&appid=08d6b636cccc477260e8ab2e95047782';
 
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = myAjax;
   xhr.open('GET', url);
   xhr.send();
+
 
   function myAjax() {
     if (xhr.readyState === 4) {
@@ -95,7 +116,7 @@ function success(data) {
     bodyBG('rainy_night.jpg');
   } else if (CONDITION.textContent === 'Clouds' && hour >= 17) {
     bodyBG('cloudy_night.jpg');
-  }else if (CONDITION.textContent === 'Fog') {
+  } else if (CONDITION.textContent === 'Fog') {
     bodyBG('fog.jpg');
   }
 
