@@ -30,7 +30,7 @@ if (minute < 10) {
 }());
 
 function aError() {
-  url = 'https://api.openweathermap.org/data/2.5/weather?q=London,uk&callback=myAjax&appid=08d6b636cccc477260e8ab2e95047782';
+  url = 'https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=08d6b636cccc477260e8ab2e95047782';
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = myAjax;
   xhr.open('GET', url);
