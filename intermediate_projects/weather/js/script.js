@@ -109,7 +109,7 @@ function success(data) {
   } else if (CONDITION.textContent === 'Rain' && hour < 17) {
     bodyBG('rain.jpg');
   } else if (CONDITION.textContent === 'Clouds' && hour < 17) {
-    bodyBG('cloudy_day.jpg');
+    document.body.innerHTML += `<video playsinline autoplay muted loop><source src="img/cloud.mp4" type="video/mp4"></video>`;
   } else if (CONDITION.textContent === 'Clear' && hour >= 17) {
     bodyBG('clear_night.jpg');
   } else if (CONDITION.textContent === 'Rain' && hour >= 17) {
