@@ -96,7 +96,7 @@ function success(data) {
   CONDITION.textContent = condition;
   //Change the BG of body
   function bodyBG(image) {
-    let bg = "linear-gradient(to bottom,rgba(0, 0, 0, 0.4), rgba(250, 250, 250, 0.2))";
+    let bg = "linear-gradient(45deg,rgba(0, 0, 0, 0.6) 65%, rgba(250, 250, 250, 0.34))";
     if (window.innerWidth < 800) {
       document.body.style.backgroundImage = bg + ",url('img/sm/" + image + "')";
     } else {
@@ -107,7 +107,7 @@ function success(data) {
   if (CONDITION.textContent === 'Clear' && hour < 17) {
     bodyBG('clear_day.jpg');
   } else if (CONDITION.textContent === 'Rain' && hour < 17) {
-    bodyBG('rainy_day.jpg');
+    bodyBG('rain.jpg');
   } else if (CONDITION.textContent === 'Clouds' && hour < 17) {
     bodyBG('cloudy_day.jpg');
   } else if (CONDITION.textContent === 'Clear' && hour >= 17) {
@@ -118,6 +118,8 @@ function success(data) {
     bodyBG('cloudy_night.jpg');
   } else if (CONDITION.textContent === 'Fog') {
     bodyBG('fog.jpg');
+  } else if (CONDITION.textContent === 'Drizzle') {
+    bodyBG('drizzle.JPG');
   }
 
 }
