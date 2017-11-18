@@ -102,8 +102,9 @@ function success(data) {
     } else {
       document.body.style.backgroundImage = bg + ",url('img/" + image + "')";
     }
+  
   }
-
+  
   if (CONDITION.textContent === 'Clear' && hour < 17) {
     bodyBG('clear_day.jpg');
   } else if (CONDITION.textContent === 'Rain' && hour < 17) {
