@@ -1,19 +1,17 @@
-const CONTAINER = document.querySelector('.wheather');
-const TEMPERATURE = document.querySelector('.temperature');
-const CITY = document.querySelector('.city');
-const CONDITION = document.querySelector('.condition');
-const NOW = document.querySelector('.date');
-const BTNS = document.querySelector('.btns');
-let url;
-let lat;
-let long;
+const CONTAINER = document.querySelector('.wheather'),
+      TEMPERATURE = document.querySelector('.temperature'),
+      CITY = document.querySelector('.city'),
+      CONDITION = document.querySelector('.condition'),
+      NOW = document.querySelector('.date'),
+      BTNS = document.querySelector('.btns');
 
-let today = new Date();
-let day = today.getDay();
-let hour = today.getHours();
-let minute = today.getMinutes();
-let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday'];
-let dayNow = today.getDay();
+let url,
+    today = new Date(),
+    day = today.getDay(),
+    hour = today.getHours(),
+    minute = today.getMinutes(),
+    days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday'],
+    dayNow = today.getDay();
 
 if (minute < 10) {
   NOW.textContent = days[dayNow] + ' ' + hour + ':0' + minute;
@@ -49,8 +47,8 @@ function aError() {
 
 
 function ajax(position) {
-  lat = position.coords.latitude;
-  long = position.coords.longitude;
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
   url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + '&appid=08d6b636cccc477260e8ab2e95047782';
 
   var xhr = new XMLHttpRequest();
@@ -76,8 +74,8 @@ function success(data) {
 
   CITY.textContent = response.name;
 
-  let tempC = parseInt(response.main.temp - 273.15);
-  let tempF = parseInt(tempC * 1.8 + 32);
+  let tempC = parseInt(response.main.temp - 273.15),
+      tempF = parseInt(tempC * 1.8 + 32);
   TEMPERATURE.textContent = tempC + '\xB0 C';
 
   BTNS.addEventListener('click', function (e) {
@@ -90,7 +88,6 @@ function success(data) {
       }
     }
   }); //end event listener buttons
-
 
   let condition = response.weather[0].main;
   CONDITION.textContent = condition;
