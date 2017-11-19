@@ -5,10 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Twitch app</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
+  <div class="container">
+    <header class="container-header">
+      <h1 class="main-heading">TWITCH STREAMERS</h1>
+      <div class="btns">
+        <button class="btn-all active">All</button>
+        <button class="btn-online">Online</button>
+        <button class="btn-offline">Offline</button>
+      </div>
+    </header>
+    <main class="body">
+      <ul class="streamers"></ul>
+    </main>
+  </div>
   <script src="js/jQuery.js"></script>
   <script src="js/script.js"></script>
 </body>
