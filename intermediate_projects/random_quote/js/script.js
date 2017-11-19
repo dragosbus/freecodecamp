@@ -1,6 +1,6 @@
-const QUOTE = $(".quote");
-const AUTHOR = $(".cite");
-
+const QUOTE = $(".quote"),
+      AUTHOR = $(".cite");
+ 
 function changeColor() {
   const COLORS = ["#384047", "#b61241", "#34d174", "#d19a3c", "#53dfba"];
   var color = Math.floor(Math.random() * COLORS.length);
@@ -20,11 +20,11 @@ function getQuote() {
     url: 'https://andruxnet-random-famous-quotes.p.mashape.com/cat=',
     success: function (data) {
       changeColor();
-      var quote = data.quote;
-      var author = data.author;
+      var quote = data.quote,
+          author = data.author;
       QUOTE.text(quote);
       AUTHOR.text("-" + author);
-      
+
       $(".quote-tweet").attr("href", 'https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + '"' + quote + '" ' + author);
 
 
@@ -32,7 +32,7 @@ function getQuote() {
     },
     error: function () {
       changeColor();
-      QUOTE.css('color','#df4d4d');
+      QUOTE.css('color', '#df4d4d');
       QUOTE.text("There is an error!Please try later!!");
     }
   });

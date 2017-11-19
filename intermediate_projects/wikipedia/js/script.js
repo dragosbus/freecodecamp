@@ -1,6 +1,6 @@
-const form = document.getElementById('search');
-const input = document.getElementById('input-search');
-const main = document.querySelector('main');
+const form = document.getElementById('search'),
+      input = document.getElementById('input-search'),
+      main = document.querySelector('main');
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -15,12 +15,12 @@ form.addEventListener('submit', function (e) {
       'Api-User-Agent': 'Example/1.0'
     },
     success: function (data) {
-      let pages = data.query.pages;
-      let message = '<ul class="articles">';
+      let pages = data.query.pages,
+          message = '<ul class="articles">';
 
       $.each(pages, function (index, article) {
-        let title = article.title;
-        let content = article.extract;
+        let title = article.title,
+            content = article.extract;
         //if the content of article is undefined, don't append the article
         if (content !== undefined) {
           message += '<li>';
