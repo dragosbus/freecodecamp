@@ -58,13 +58,19 @@ const view = (function() {
 
   let equalEvent = function() {
     total = eval(inputs.join(''));
-    if(Number.isSafeInteger(total)) {
+    //check if total exced 20 characters
+    if(total.toString().length<=20) {
       result.value = total;
       chain.textContent = total;
     } else {
       result.value = 'Number to large';
       chain.textContent = 'Press clear for other calculations';
     }
+    //Check if is made a division by 0
+    if(total === Infinity || total === -Infinity) {
+      result.value = ('Cant divide by 0');
+    }
+
     inputs = [];
     inputs.push(total);
     operator = '';

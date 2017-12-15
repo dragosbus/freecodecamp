@@ -34,7 +34,7 @@ body {
 .chain {
   position: absolute;
   top:80px;
-  right: 160px;
+  right: 25%;
   text-align: right;
   font-size: 1.15rem;
 }
