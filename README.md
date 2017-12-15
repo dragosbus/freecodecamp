@@ -10,3 +10,6 @@ There you find my projects from [freecodecamp](https://www.freecodecamp.org/)
 
 ## Wikipedia Search app
 [wikipedia-app](https://dragosbus.github.io/freecodecamp/intermediate_projects/wikipedia/)
+
+## Calculator
+[calculator](https://dragosbus.github.io/freecodecamp/advanced_projects/calculator/)

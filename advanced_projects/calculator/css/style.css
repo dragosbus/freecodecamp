@@ -1,0 +1,86 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.result {
+  width: 100%;
+  height: 100px;
+  border: none;
+  background: rgb(222, 233, 237);
+  font-size: 1.65rem;
+  text-align: right;
+  padding: 5px 15px;
+}
+
+.chain {
+  position: absolute;
+  top:80px;
+  right: 160px;
+  text-align: right;
+  font-size: 1.15rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btns > button {
+  font-size: 1.55rem;
+  width: 25%;
+  border:1px solid rgba(209, 213, 218, 0.55);
+  background: none;
+  height: 100px;
+}
+
+.clear {
+  color: rgb(200, 56, 56);
+  font-weight: 700;
+}
+
+.op {
+  color: rgb(58, 97, 175);
+  font-weight: 700;
+}
+
+button.equal {
+  background: rgba(32, 50, 170, 0.82);
+  color: white;
+  border: none;
+}
+
+/*---------Media querys---------*/
+
+@media (min-width: 600px) {
+  #app {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+@media (min-width: 960px) {
+  #app {
+    width: 60%;
+    margin: 10px auto;
+  }
+}
