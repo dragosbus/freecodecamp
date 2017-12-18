@@ -3,6 +3,7 @@ const divBreak = document.querySelector('.break');
 const clock = document.querySelector('.clock');
 const counterClock = document.querySelector('.count-clock');
 const titleClock = document.querySelector('.clock-now');
+const btns = document.querySelectorAll('button');
 
 let countSession = parseInt(divSession.querySelector('.timer').textContent);
 let countBreak = parseInt(divBreak.querySelector('.timer').textContent);
@@ -71,6 +72,12 @@ clock.addEventListener('click', e => {
     }
     titleClock.textContent = 'Break time';
     counterClock.textContent = countBreak;
+  }
+  if(counterClock) {
+    btns.forEach(btn=>{
+      btn.disabled = true;
+      clock.disabled = true;
+    });
   }
 });
 

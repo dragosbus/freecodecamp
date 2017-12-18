@@ -25,17 +25,24 @@ function updateInventory(arr1, arr2) {
   }
   return newInventory;
 }
-console.log(updateInventory([], [
+console.log(updateInventory([
+  [4,
+  "Mele"],
+  [2,
+  "Pere"],
+  [9,
+  "Mandarini"]
+], [
   [
-    2, "Hair Pin"
+    2, "Mele"
   ],
   [
-    3, "Half-Eaten Apple"
+    3, "Pere"
   ],
   [
-    67, "Bowling Ball"
+    67, "Banane"
   ],
   [
-    7, "Toothpaste"
+    7, "Mandarini"
   ]
 ]));
