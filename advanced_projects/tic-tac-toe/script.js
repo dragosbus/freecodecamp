@@ -41,7 +41,8 @@ function startGame() {
   document.querySelector('.ai').innerHTML = 'Ai';
 
   animation();
-  whoIsFirst()
+  whoIsFirst();
+  /*The boxes from the board became new boxes created in reset function*/
   DOMelements.boxes = document.querySelectorAll('.box');
   gameOver = false;
   moves = 0;
@@ -67,28 +68,37 @@ var animation = function () {
   }, 1100);
 };
 
-//Create new li's when the game is finished
+/*Create new li's when the game is finished.
+We should create a new board after the game finished*/
+
 function createLI() {
   var li = document.createElement('li');
   li.className = 'box';
   return li;
 }
 
-//Rest game handler
+//Reset game handler
 function reset() {
+  //Delete old board
   DOMelements.ulBox.innerHTML = '';
+  //Create new board
   for (let i = 0; i < 9; i++) {
     DOMelements.ulBox.appendChild(createLI());
   }
+  //Hide result page
   var screens = document.querySelectorAll('.screen');
   for (let i = 0; i < screens.length; i++) {
     screens[i].classList.remove('fade');
     screens[i].style.display = 'none';
   }
+  //Show the board
   DOMelements.gamePage.style.display = 'block';
+  //Call start game handler
   startGame();
 }
 
+/*Create 3 handlers for winning page,tie page and loosing page.
+The result page will show up after 0.7 seconds and after 1.1 seconds will add class fade for animation.For every result page we should hide the board*/ 
 
 //Screen for when player win
 var screenWin = function () {
@@ -223,7 +233,8 @@ function aiMoves() {
   }
 }
 
-//Logic for check winning combinations
+/*Logic for check winning combinations.
+A box is in winning combination if has class of activePlayer*/
 function checkWinner(activePlayer, board) {
 
   if (board[0].classList.contains(`box-${activePlayer}`) && board[1].classList.contains(`box-${activePlayer}`) && board[2].classList.contains(`box-${activePlayer}`)) {
