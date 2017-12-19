@@ -1,0 +1,197 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  line-height: 0.7;
+  margin: 0 auto;
+  text-align: left;
+  width: 1.875em;
+}
+
+.start-page {
+  background: #54D17A;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+.start-page h1 {
+  font-size: 3em;
+}
+
+.new-game {
+  display: block;
+  color: #54D17A;
+  margin: 100px auto;
+  padding: 5px 15px;
+  opacity: 1;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 1.65rem;
+}
+
+.hide-new-game {
+  opacity: 0;
+  transition: opacity 0.65s ease-in;
+}
+
+.board {
+  padding-top: 1em;
+  width: 90%;
+  height: 55vh;
+  margin: 5px auto;
+  opacity: 0;
+  transition: opacity 0.65s ease-in;
+  display: none;
+}
+
+.show-board {
+  opacity: 1;
+}
+
+.boxes {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.box {
+  background: #EFEFEF;
+  border-radius: 4px;
+  width: 30%;
+  height: 25%;
+  margin: 5px auto;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: 0.2s ease;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.box img {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.boxes .box-o {
+  background-color: #FFA000;
+}
+
+.boxes .box-x {
+  background-color: #3688C3;
+}
+
+.screen-win,
+.screen-tie,
+.screen-loose {
+  display: none;
+  opacity: 0;
+  height: 100vh;
+  padding: 20px;
+}
+
+.fade {
+  opacity: 1;
+  transition: all 0.65s ease-in-out;
+}
+
+.screen-win {
+  background: #54D17A;
+}
+
+.screen-tie {
+  background: #3688C3;
+}
+
+.screen-loose {
+  background: #FFA000;
+}
+
+.screen p {
+  font-size: 2em;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
+
+.screen button {
+  display: block;
+  margin: 50% auto;
+  padding: 5px 15px;
+  opacity: 1;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 1.65rem;
+}
+
+.screen-win button {
+  color: #54D17A;
+}
+
+.screen-tie button {
+  color: #3688C3;
+}
+
+.screen-loose button {
+  color: #FFA000;
+}
+
+
+
+.board h1 {
+  margin-top: 0.3em;
+}
+
+
+/* Media querys*/
+
+@media (min-width:760px) {
+  .board {
+    width: 65%;
+  }
+  .screen button {
+    margin: 30% auto;
+    padding: 5px 15px;
+    font-size: 1.65rem;
+  }
+}
+
+@media (min-width:1100px) {
+  .board {
+    width: 50%;
+  }
+  .screen button {
+    margin: 20% auto;
+    padding: 5px 15px;
+    font-size: 1.65rem;
+  }
+}
