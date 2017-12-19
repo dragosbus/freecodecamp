@@ -69,6 +69,28 @@ h1 {
   display: none;
 }
 
+.board header {
+  display: flex;
+}
+
+.player,
+.ai {
+  font-size: 1.5rem;
+  background: rgba(14, 14, 14, 0.128);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  width: 90px;
+}
+
+.player img,
+.ai img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: 10px auto;
+}
+
 .show-board {
   opacity: 1;
 }

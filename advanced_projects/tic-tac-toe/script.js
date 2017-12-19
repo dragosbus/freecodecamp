@@ -31,10 +31,15 @@ function whoIsFirst() {
     ai = 'x';
     currentPlayer = ai;
   }
+  document.querySelector('.player').innerHTML += `<img src="img/${player}.svg">`;
+  document.querySelector('.ai').innerHTML += `<img src="img/${ai}.svg">`;
 }
 
 //Start game handler
 function startGame() {
+  document.querySelector('.player').innerHTML = 'Player';
+  document.querySelector('.ai').innerHTML = 'Ai';
+
   animation();
   whoIsFirst()
   DOMelements.boxes = document.querySelectorAll('.box');
