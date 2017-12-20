@@ -98,7 +98,7 @@ function reset() {
 }
 
 /*Create 3 handlers for winning page,tie page and loosing page.
-The result page will show up after 0.7 seconds and after 1.1 seconds will add class fade for animation.For every result page we should hide the board*/ 
+The result page will show up after 0.7 seconds and after 1.1 seconds will add class fade for animation.For every result page we should hide the board*/
 
 //Screen for when player win
 var screenWin = function () {
@@ -203,7 +203,72 @@ function aiTurn(box) {
 function aiMoves() {
   var box = DOMelements.boxes;
 
-  if (!box[0].classList.contains('box-x') && !box[0].classList.contains('box-o')) {
+  if (box[0].classList.contains(`box-${player}`) && box[1].classList.contains(`box-${player}`) && !box[3].classList.contains('box-x') && !box[3].classList.contains('box-o')) {
+    aiTurn(box[3]);
+
+  } else if (box[0].classList.contains(`box-${player}`) && box[3].classList.contains(`box-${player}`) && !box[6].classList.contains('box-x') && !box[6].classList.contains('box-o')) {
+    aiTurn(box[6]);
+  } else if (box[0].classList.contains(`box-${player}`) && box[4].classList.contains(`box-${player}`) && !box[8].classList.contains('box-x') && !box[8].classList.contains('box-o')) {
+    aiTurn(box[8]);
+
+  } else if (box[1].classList.contains(`box-${player}`) && box[4].classList.contains(`box-${player}`) && !box[7].classList.contains('box-x') && !box[7].classList.contains('box-o')) {
+    aiTurn(box[7]);
+
+  } else if (box[2].classList.contains(`box-${player}`) && box[4].classList.contains(`box-${player}`) && !box[6].classList.contains('box-x') && !box[6].classList.contains('box-o')) {
+    aiTurn(box[6]);
+
+  } else if (box[2].classList.contains(`box-${player}`) && box[5].classList.contains(`box-${player}`) && !box[8].classList.contains('box-x') && !box[8].classList.contains('box-o')) {
+    aiTurn(box[8]);
+
+  } else if (box[3].classList.contains(`box-${player}`) && box[4].classList.contains(`box-${player}`) && !box[5].classList.contains('box-x') && !box[5].classList.contains('box-o')) {
+    aiTurn(box[5]);
+
+  } else if (box[6].classList.contains(`box-${player}`) && box[7].classList.contains(`box-${player}`) && !box[8].classList.contains('box-x') && !box[8].classList.contains('box-o')) {
+    aiTurn(box[8]);
+
+  } else if (box[0].classList.contains(`box-${player}`) && box[2].classList.contains(`box-${player}`) && !box[1].classList.contains('box-x') && !box[1].classList.contains('box-o')) {
+    aiTurn(box[1]);
+
+  } else if (box[0].classList.contains(`box-${player}`) && box[8].classList.contains(`box-${player}`) && !box[4].classList.contains('box-x') && !box[4].classList.contains('box-o')) {
+    aiTurn(box[4]);
+
+  } else if (box[0].classList.contains(`box-${player}`) && box[6].classList.contains(`box-${player}`) && !box[3].classList.contains('box-x') && !box[3].classList.contains('box-o')) {
+    aiTurn(box[3]);
+
+  } else if (box[1].classList.contains(`box-${player}`) && box[7].classList.contains(`box-${player}`) && !box[4].classList.contains('box-x') && !box[4].classList.contains('box-o')) {
+    aiTurn(box[4]);
+
+  } else if (box[2].classList.contains(`box-${player}`) && box[6].classList.contains(`box-${player}`) && !box[4].classList.contains('box-x') && !box[4].classList.contains('box-o')) {
+    aiTurn(box[4]);
+
+  } else if (box[2].classList.contains(`box-${player}`) && box[8].classList.contains(`box-${player}`) && !box[5].classList.contains('box-x') && !box[5].classList.contains('box-o')) {
+    aiTurn(box[5]);
+
+  } else if (box[3].classList.contains(`box-${player}`) && box[5].classList.contains(`box-${player}`) && !box[4].classList.contains('box-x') && !box[4].classList.contains('box-o')) {
+    aiTurn(box[4]);
+
+  } else if (box[6].classList.contains(`box-${player}`) && box[8].classList.contains(`box-${player}`) && !box[7].classList.contains('box-x') && !box[7].classList.contains('box-o')) {
+    aiTurn(box[7]);
+
+  } else if (box[8].classList.contains(`box-${player}`) && box[5].classList.contains(`box-${player}`) && !box[2].classList.contains('box-x') && !box[2].classList.contains('box-o')) {
+    aiTurn(box[2]);
+
+  } else if (box[8].classList.contains(`box-${player}`) && box[7].classList.contains(`box-${player}`) && !box[6].classList.contains('box-x') && !box[6].classList.contains('box-o')) {
+    aiTurn(box[6]);
+
+  } else if (box[7].classList.contains(`box-${player}`) && box[4].classList.contains(`box-${player}`) && !box[1].classList.contains('box-x') && !box[1].classList.contains('box-o')) {
+    aiTurn(box[1]);
+
+  } else if (box[6].classList.contains(`box-${player}`) && box[3].classList.contains(`box-${player}`) && !box[0].classList.contains('box-x') && !box[0].classList.contains('box-o')) {
+    aiTurn(box[0]);
+
+  } else if (box[5].classList.contains(`box-${player}`) && box[4].classList.contains(`box-${player}`) && !box[3].classList.contains('box-x') && !box[3].classList.contains('box-o')) {
+    aiTurn(box[3]);
+
+  } else if (box[6].classList.contains(`box-${player}`) && box[3].classList.contains(`box-${player}`) && !box[0].classList.contains('box-x') && !box[0].classList.contains('box-o')) {
+    aiTurn(box[0]);
+
+  } else if (!box[0].classList.contains('box-x') && !box[0].classList.contains('box-o')) {
     aiTurn(box[0]);
 
   } else if (!box[1].classList.contains('box-x') && !box[1].classList.contains('box-o')) {
