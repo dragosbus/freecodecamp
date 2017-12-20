@@ -1,9 +1,9 @@
 var CACHE_NAME = 'myapp-cache-v1.0';
 
 var urlsToCache = [
-  '/tic-tac-toe/',
-  '/tic-tac-toe/css/style.css',
-  '/tic-tac-toe/js/script.js'
+  '/freecodecamp/advanced_projects/tic-tac-toe/',
+  '/freecodecamp/advanced_projects/tic-tac-toe/css/style.css',
+  '/freecodecamp/advanced_projects/tic-tac-toe/js/script.js'
 ]
 
 if ('serviceWorker' in navigator) {
