@@ -1,0 +1,80 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+}
+
+#game {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.choose {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+
+.btn {
+  width: 45%;
+  height: 166px;
+}
+
+.red {
+  background: rgb(202, 39, 39);
+  border-radius: 100% 0 0 0;
+  border: 10px solid rgba(58, 54, 54, 0.808);
+  border-right: none;
+  border-bottom: none;
+}
+
+.green {
+  background: rgb(45, 168, 82);
+  border-radius: 0 100% 0 0;
+  border: 10px solid rgba(58, 54, 54, 0.808);
+  border-bottom: none;
+}
+
+.blue {
+  background: rgb(68, 44, 155);
+  border-radius: 0 0 0 100%;
+  border: 10px solid rgba(58, 54, 54, 0.808);
+  border-right: none;
+}
+
+.yellow {
+  background: rgb(156, 168, 42);
+  border-radius: 0 0 100% 0;
+  border: 10px solid rgba(58, 54, 54, 0.808);
+}
+
+
+/*Media querys*/
+
+@media (min-width:760px) {
+  .choose {
+    width: 60%;
+  }
+}
+
+@media (min-width:960px) {
+  .choose {
+    width: 40%;
+  }
+}
