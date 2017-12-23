@@ -180,7 +180,9 @@ DOMelements.ulBox.addEventListener('click', function (e) {
       checkWinner(player, DOMelements.boxes);
       aiMoves();
       showWinner();
+
     }
+    
   }
 });
 

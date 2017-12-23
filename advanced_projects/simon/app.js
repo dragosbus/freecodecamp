@@ -9,30 +9,41 @@
   };
 
   var controller = {
+
     random(range) {
       return Math.floor(Math.random() * range);
     },
+
     startGame(btn) {
+      var currentBtn = controller.random(btn.length);
+      model.randomInputs.push(btn[currentBtn]);
+      console.log(model.randomInputs);
+      model.count++;
 
-      while (model.count <= model.max) {
-        var currentBtn = controller.random(btn.length);
+      view.render();
+    },
 
-        setTimeout(function () {
-          model.randomInputs.push(btn[currentBtn]);
+    userChoise(btns) {
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+          model.userInputs.push(btns[i]);
+          console.log(model.userInputs);
 
-          if (model.count === 5) {
-            model.velocity = 1.5;
-          } else if (model.count === 9) {
-            model.velocity = 2;
+          if (model.userInputs.length === model.randomInputs.length) {
+            model.userInputs = [];
+
+            console.log(model.count);
+            setTimeout(() => {
+              controller.startGame(btns);
+              view.render();
+            }, 2000);
           }
 
-          console.log(model.randomInputs);
-          model.count++;
-        }, 2000);
-       
+        });
       }
 
     },
+
     check() {
       for (let i = 0; i < model.randomInputs; i++) {
         if (model.randomInputs[i] === model.userInputs[i]) {
@@ -54,8 +65,44 @@
       start.addEventListener('click', function () {
         controller.startGame(btns);
         counter.textContent = model.count;
+        controller.userChoise(btns);
       });
+      view.render();
+    },
+
+    render() {
+      document.querySelector('.steps').textContent = model.count;
+      // for (let i = 0; i < model.randomInputs.length; i++) {
+      //   setTimeout(() => model.randomInputs[i].style.opacity = '1', 1000);
+
+      // }
+
+      // for (let i = 0; i < model.randomInputs.length; i++) {
+      //   setTimeout(() => model.randomInputs[i].style.opacity = '0.7', 2000);
+      // }
+
+      var maxim = model.randomInputs.length;
+      var current = 0;
+      //Resolve here.Color should be shown one a time
+      while (current < maxim) {
+        setTimeout(() => {
+          for(let i=0;i<maxim;i++) {
+            model.randomInputs[i].style.opacity = '1';
+          }
+        }, 1000);
+        
+        setTimeout(() => {
+          for(let i=0;i< maxim;i++) {
+            model.randomInputs[i].style.opacity = '0.7';
+          }
+        }, 2000);
+
+        current++;
+        console.log(current);
+      }
+
     }
+
   };
 
   view.init();

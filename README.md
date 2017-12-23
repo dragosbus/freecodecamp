@@ -13,3 +13,12 @@ There you find my projects from [freecodecamp](https://www.freecodecamp.org/)
 
 ## Calculator
 [calculator](https://dragosbus.github.io/freecodecamp/advanced_projects/calculator/)
+
+## Pomodoro Clock
+[pomodoro-clock](https://dragosbus.github.io/freecodecamp/advanced_projects/pomodoro/)
+
+## Tic-Tac-Toe
+[tic-tac-toe](https://dragosbus.github.io/freecodecamp/advanced_projects/tic-tac-toe/)
+
+## Simon Game
+[simon](https://dragosbus.github.io/freecodecamp/advanced_projects/simon/)
