@@ -17,22 +17,31 @@
     startGame(btn) {
       var currentBtn = controller.random(btn.length);
       model.randomInputs.push(btn[currentBtn]);
-      console.log(model.randomInputs);
       model.count++;
-
-      view.render();
+      console.log(model.randomInputs);
+        console.log(model.userInputs);
+        console.log(model.count);
+      
     },
 
     userChoise(btns) {
       for (let i = 0; i < btns.length; i++) {
+
         btns[i].addEventListener('click', function () {
+
           model.userInputs.push(btns[i]);
-          console.log(model.userInputs);
+
+          if (controller.check()) {
+            console.log('vai');
+          } else {
+            console.log('loose');
+            controller.reset();
+            
+          }
 
           if (model.userInputs.length === model.randomInputs.length) {
             model.userInputs = [];
 
-            console.log(model.count);
             setTimeout(() => {
               controller.startGame(btns);
               view.render();
@@ -40,69 +49,87 @@
           }
 
         });
+
       }
 
     },
 
     check() {
-      for (let i = 0; i < model.randomInputs; i++) {
-        if (model.randomInputs[i] === model.userInputs[i]) {
-          count++;
-        } else {
+      for (let i = 0; i < model.userInputs.length; i++) {
+        if (model.userInputs[i].classList[1] !== model.randomInputs[i].classList[1]) {
           return false;
         }
       }
+      return true;
+    },
+
+    reset() {
+      model.count = 0;
+      model.userInputs = [];
+      model.randomInputs = [];
+      view.render();
     }
   };
 
   var view = {
     init() {
-      const parentBns = document.querySelector('.choose');
+      const parentBtns = document.querySelector('.choose');
       const btns = document.querySelectorAll('.btn');
       const start = document.querySelector('.start');
+      const reset = document.querySelector('.reset');
       const counter = document.querySelector('.steps');
 
       start.addEventListener('click', function () {
         controller.startGame(btns);
         counter.textContent = model.count;
         controller.userChoise(btns);
+        this.disabled = true;
+        console.log(model.randomInputs);
+        console.log(model.userInputs);
+        console.log(model.count);
       });
       view.render();
+      reset.addEventListener('click', () => {
+        controller.reset();
+        start.disabled = false;
+        console.log(model.randomInputs);
+        console.log(model.userInputs);
+        console.log(model.count);
+      });
+      
+      
+    },
+
+    addClassSound(id) {
+      model.randomInputs[id].classList.add('show');
+      model.randomInputs[id].firstElementChild.play();
     },
 
     render() {
       document.querySelector('.steps').textContent = model.count;
-      // for (let i = 0; i < model.randomInputs.length; i++) {
-      //   setTimeout(() => model.randomInputs[i].style.opacity = '1', 1000);
+      var count = 0;
 
-      // }
-
-      // for (let i = 0; i < model.randomInputs.length; i++) {
-      //   setTimeout(() => model.randomInputs[i].style.opacity = '0.7', 2000);
-      // }
-
-      var maxim = model.randomInputs.length;
-      var current = 0;
-      //Resolve here.Color should be shown one a time
-      while (current < maxim) {
+      var interv = setInterval(() => {
+        view.addClassSound(count);
         setTimeout(() => {
-          for(let i=0;i<maxim;i++) {
-            model.randomInputs[i].style.opacity = '1';
-          }
-        }, 1000);
+          model.randomInputs[count-1].classList.remove('show');
+        }, 1000 / model.velocity);
+        var maxim = model.randomInputs.length;
+        count++;
+
+        if(count === 4) {
+          model.velocity = 1.5;
+        } else if(count ===8) {
+          model.velocity = 2;
+        }
+
+        if (count === maxim) {
+          clearInterval(interv);
+        }
         
-        setTimeout(() => {
-          for(let i=0;i< maxim;i++) {
-            model.randomInputs[i].style.opacity = '0.7';
-          }
-        }, 2000);
-
-        current++;
-        console.log(current);
-      }
-
+      }, 1600 / model.velocity);
+      
     }
-
   };
 
   view.init();
