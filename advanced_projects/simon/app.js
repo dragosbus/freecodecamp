@@ -5,7 +5,8 @@
     max: 20,
     velocity: 1,
     randomInputs: [],
-    userInputs: []
+    userInputs: [],
+    audio:[new Audio('audio/simon1.mp3'),new Audio('audio/simon2.mp3'),new Audio('audio/simon4.mp3'),new Audio('audio/simon4.mp3')]
   };
 
   var controller = {
@@ -26,12 +27,13 @@
         btns[i].addEventListener('click', function () {
           model.userInputs.push(btns[i]);
           this.classList.add('show');
+          model.audio[controller.random(model.audio.length-1)].play();
           setTimeout(()=>this.classList.remove('show'),200);
           if (controller.check()) {
             console.log('vai');
           } else {
-            console.log('loose');
-            controller.reset();
+            setTimeout(()=>alert("You miss!"),800)
+            controller.reset()
           }
 
           if (model.userInputs.length === model.randomInputs.length) {
@@ -92,7 +94,7 @@
       model.count = 0;
       function addClassSound() {
         model.randomInputs[model.count].classList.add('show');
-        model.randomInputs[model.count].firstElementChild.play();
+        model.audio[controller.random(model.audio.length-1)].play();
       }
 
       var interv = setInterval(() => {
@@ -107,6 +109,9 @@
           model.velocity = 1.5;
         } else if (model.count === 8) {
           model.velocity = 2;
+        } else if(model.count === model.max) {
+          alert('You win');
+          window.location.reload();
         }
 
         if (model.count === maxim) {
