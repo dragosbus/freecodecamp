@@ -70,6 +70,37 @@ body {
   border: 10px solid rgba(58, 54, 54, 0.808);
 }
 
+.controller {
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  padding: 20px 10px;
+  margin: 60px auto;
+}
+
+.controller p {
+  text-align: center;
+  font-size: 1.35rem;
+}
+
+.controller button {
+  display: block;
+  margin: 10px auto;
+  border: none;
+  font-size: 1.4rem;
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.start {
+  background: rgb(54, 108, 209);
+}
+
+.reset {
+  background: rgb(58, 199, 105);
+}
+
 
 /*Media querys*/
 
@@ -77,10 +108,18 @@ body {
   .choose {
     width: 60%;
   }
+
+  .controller {
+    width: 60%;  
+  }
 }
 
 @media (min-width:960px) {
   .choose {
     width: 40%;
+  }
+
+  .controller {
+    width: 40%;  
   }
 }

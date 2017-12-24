@@ -18,25 +18,20 @@
       var currentBtn = controller.random(btn.length);
       model.randomInputs.push(btn[currentBtn]);
       model.count++;
-      console.log(model.randomInputs);
-        console.log(model.userInputs);
-        console.log(model.count);
-      
     },
 
     userChoise(btns) {
       for (let i = 0; i < btns.length; i++) {
 
         btns[i].addEventListener('click', function () {
-
           model.userInputs.push(btns[i]);
-
+          this.classList.add('show');
+          setTimeout(()=>this.classList.remove('show'),200);
           if (controller.check()) {
             console.log('vai');
           } else {
             console.log('loose');
             controller.reset();
-            
           }
 
           if (model.userInputs.length === model.randomInputs.length) {
@@ -67,68 +62,59 @@
       model.count = 0;
       model.userInputs = [];
       model.randomInputs = [];
-      view.render();
     }
   };
 
   var view = {
     init() {
-      const parentBtns = document.querySelector('.choose');
       const btns = document.querySelectorAll('.btn');
       const start = document.querySelector('.start');
       const reset = document.querySelector('.reset');
       const counter = document.querySelector('.steps');
 
       start.addEventListener('click', function () {
+        controller.reset();
         controller.startGame(btns);
         counter.textContent = model.count;
         controller.userChoise(btns);
         this.disabled = true;
-        console.log(model.randomInputs);
-        console.log(model.userInputs);
-        console.log(model.count);
+        view.render();
       });
-      view.render();
-      reset.addEventListener('click', () => {
-        controller.reset();
-        start.disabled = false;
-        console.log(model.randomInputs);
-        console.log(model.userInputs);
-        console.log(model.count);
-      });
-      
-      
-    },
 
-    addClassSound(id) {
-      model.randomInputs[id].classList.add('show');
-      model.randomInputs[id].firstElementChild.play();
+      reset.addEventListener('click', () => {
+        window.location.reload();
+      });
+
     },
 
     render() {
       document.querySelector('.steps').textContent = model.count;
-      var count = 0;
+      model.count = 0;
+      function addClassSound() {
+        model.randomInputs[model.count].classList.add('show');
+        model.randomInputs[model.count].firstElementChild.play();
+      }
 
       var interv = setInterval(() => {
-        view.addClassSound(count);
+        addClassSound();
         setTimeout(() => {
-          model.randomInputs[count-1].classList.remove('show');
+          model.randomInputs[model.count - 1].classList.remove('show');
         }, 1000 / model.velocity);
         var maxim = model.randomInputs.length;
-        count++;
+        model.count++;
 
-        if(count === 4) {
+        if (model.count === 4) {
           model.velocity = 1.5;
-        } else if(count ===8) {
+        } else if (model.count === 8) {
           model.velocity = 2;
         }
 
-        if (count === maxim) {
+        if (model.count === maxim) {
           clearInterval(interv);
         }
-        
+
       }, 1600 / model.velocity);
-      
+
     }
   };
 
