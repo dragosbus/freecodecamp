@@ -1,3 +1,5 @@
+//start refactoring weather app using fetch api,without jQuery
+
 const CONTAINER = document.querySelector('.wheather'),
       TEMPERATURE = document.querySelector('.temperature'),
       CITY = document.querySelector('.city'),
