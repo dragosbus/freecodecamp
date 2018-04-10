@@ -7,9 +7,13 @@ const UI = (function() {
         BTNS = document.querySelector('.btns'),
         FORM = document.getElementById("city-name");
         
+    const getTime = () => {
+        let time = App.getTime();
+        NOW.textContent = time;
+    };
+        
     const successHandler = data =>{
         CITY.textContent = data.name;
-
         let tempC = parseInt(data.main.temp - 273.15),
             tempF = parseInt(tempC * 1.8 + 32);
         TEMPERATURE.textContent = tempC + '\xB0 C';
@@ -28,6 +32,9 @@ const UI = (function() {
         let condition = data.weather[0].main;
         CONDITION.textContent = condition;
     };
+    
+    //error handler if data can not be fetched
+    const error = () => document.querySelector('.error').style.display = "block";
         
     const fetchByCoords = position => {
         let lat = position.coords.latitude;
@@ -55,8 +62,8 @@ const UI = (function() {
     };
     
     document.addEventListener("DOMContentLoaded",()=>{
+        getTime();
         getDataByCoords();
-        
         fetchByName();
     });
 }());

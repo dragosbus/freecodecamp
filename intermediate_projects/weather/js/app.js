@@ -18,4 +18,6 @@ const App = (function() {
         return dateDOM;
     };
     
+    return {getTime};
+    
 }());
