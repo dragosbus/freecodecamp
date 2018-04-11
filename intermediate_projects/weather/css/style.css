@@ -17,10 +17,51 @@ html {
 body {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
-  background: #c6ffd5;
+  background: linear-gradient(45deg, #0400FF,#6500FF);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+header {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+#city-name {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.city-name {
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  outline: none;
+  transition: box-shadow 0.5s ease-out,
+              border 0.75s ease-in;
+}
+
+.city-name:focus {
+  box-shadow: none;
+  border: 1px solid #00FF83;
+} 
+
+.btn-city {
+  position: absolute;
+  border: none;
+  color: #fff;
+  background: #007BFF;
+  height: 40px;
+  right: 10%;
+  padding: 0 15px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }
 
 .glass {
@@ -33,19 +74,6 @@ body {
   border-radius: 5px;
   left: 5%;
 }
-
-.glass:before{
-  content: '';
-  width: 90%;
-  height: 199px;
-  background: inherit; 
-  position: absolute;
-  left: 0;  //giving minus -25px left position
-  right: 0;
-  top: 0;   //giving minus -25px top position 
-  bottom: 0;
-  filter: blur(10px);
- }
 
  video { 
   position: fixed;
@@ -65,7 +93,7 @@ transition: 1s opacity;
 .error {
   width: 90%;
   margin: 150px auto 0;
-  background: rgba(253,250,255,0.5);
+  background: #fff;
   border-radius: 5px;
   padding: 60px 30px;
   box-shadow: 0 0 26px rgba(0, 0, 0, .33);
@@ -95,7 +123,7 @@ transition: 1s opacity;
 
 .celsius,
 .far {
-  border: 2px solid #bfbfbf;
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 5px;
   padding: 10px 40px;
   font-size: 1.35rem;
@@ -106,7 +134,7 @@ transition: 1s opacity;
 
 .celsius:hover,
 .far:hover {
-  background: rgba(2, 2, 2, 0.5);
+  background: #3F0020;
 }
 
 .error {
