@@ -34,7 +34,12 @@ const UI = (function() {
     };
     
     //error handler if data can not be fetched
-    const error = () => document.querySelector('.error').style.display = "block";
+    const error = () => {
+      document.querySelector('.error').style.display = "block";
+      setTimeout(()=>{
+          document.querySelector('.error').style.display = "none";
+      },3000);
+    };
         
     const fetchByCoords = position => {
         let lat = position.coords.latitude;
@@ -49,7 +54,7 @@ const UI = (function() {
            return new Promise((resolve, reject)=>{
               if(cityName) resolve(API.fecthByName(cityName));
               else reject("Name not avaible");
-           }).then(successHandler);
+           }).then(successHandler).catch(error);
         });//end form submit event
     };
       
