@@ -22,7 +22,7 @@ const UI = (function() {
                     temperature = tempC;
                     document.querySelector(".temperature").textContent = tempC;
                 } else if (target.textContent == 'F') {
-                    document.querySelector(".temperature").textContent = tempF;
+                    document.querySelector(".temperature").textContent = tempF +"\xB0 F";
                 }
             }
         }); //end event listener buttons
