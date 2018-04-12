@@ -20,8 +20,9 @@ const UI = (function() {
             if (target.tagName == 'BUTTON') {
                 if (target.textContent == 'C') {
                     temperature = tempC;
+                    document.querySelector(".temperature").textContent = tempC;
                 } else if (target.textContent == 'F') {
-                    temperature = tempF;
+                    document.querySelector(".temperature").textContent = tempF;
                 }
             }
         }); //end event listener buttons
