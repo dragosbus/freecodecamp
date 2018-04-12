@@ -1,36 +1,32 @@
 const UI = (function() {
-    const CONTAINER = document.querySelector('.wheather'),
-        TEMPERATURE = document.querySelector('.temperature'),
-        CITY = document.querySelector('.city'),
-        CONDITION = document.querySelector('.condition'),
-        NOW = document.querySelector('.date'),
+    const weather = document.getElementById("weather"),
         BTNS = document.querySelector('.btns'),
         FORM = document.getElementById("city-name");
         
-    const getTime = () => {
-        let time = App.getTime();
-        NOW.textContent = time;
-    };
-        
     const successHandler = data =>{
-        CITY.textContent = data.name;
+        weather.innerHTML = "";
         let tempC = parseInt(data.main.temp - 273.15),
             tempF = parseInt(tempC * 1.8 + 32);
-        TEMPERATURE.textContent = tempC + '\xB0 C';
+        let temperature = tempC;
+        let card = `<div class="weather">
+          <h2 class="city">${data.name}</h2>
+          <p class="date">${App.getTime()}</p>
+          <p class="condition">${data.weather[0].main}</p>
+          <p class="temperature">${temperature} \xB0 C</p>
+        </div>`;
 
         BTNS.addEventListener('click', function (e) {
             var target = e.target;
             if (target.tagName == 'BUTTON') {
                 if (target.textContent == 'C') {
-                    TEMPERATURE.textContent = tempC + '\xB0 C';
+                    temperature = tempC;
                 } else if (target.textContent == 'F') {
-                    TEMPERATURE.textContent = tempF + '\xB0 F';
+                    temperature = tempF;
                 }
             }
         }); //end event listener buttons
 
-        let condition = data.weather[0].main;
-        CONDITION.textContent = condition;
+        weather.innerHTML+=card;
     };
     
     //error handler if data can not be fetched
@@ -67,7 +63,6 @@ const UI = (function() {
     };
     
     document.addEventListener("DOMContentLoaded",()=>{
-        getTime();
         getDataByCoords();
         fetchByName();
     });

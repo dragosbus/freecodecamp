@@ -9,24 +9,20 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="container">
+    <div class="container">
       <header>
         <form id="city-name">
           <input type="text" name="City" class="city-name" placeholder="City Name...">
           <input type="submit" value="Submit" class="btn-city">
         </form>
       </header>
-      <div class="btns">
+      <main>
+        <div class="btns">
           <button class="celsius">C</button>
           <button class="far">F</button>
-        </div>
-        <div class="glass"></div>
-        <div class="weather">
-          <h2 class="city"></h2>
-          <p class="date"></p>
-          <p class="condition"></p>
-          <p class="temperature"></p>
-        </div>
+      </div>
+      <section id="weather"></section>
+      </main>
   </div>
   <div class="error">
     <p>We can't respond to your request!Check if you have location activated or the city name is avaible!</p>
