@@ -22,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <TextArea typeHandler={this.typeHandler}/>
-        <MarkdownPreview value={this.state.text} />
+        <MarkdownPreview className="result" value={this.state.text} />
       </div>
     );
   }
