@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import marked from 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+import { MarkdownPreview } from 'react-marked-markdown';
 import './App.css';
 
 class App extends Component {
@@ -8,11 +8,12 @@ class App extends Component {
     this.state = {
       text: ""
     };
+    this.typeHandler = this.typeHandler.bind(this);
   }
 
   typeHandler(t) {
     this.setState({
-      text: marked(t)
+      text: t
     });
   }
 
@@ -21,7 +22,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <TextArea typeHandler={this.typeHandler}/>
-        <Result textContent={this.state.text}/>
+        <MarkdownPreview value={this.state.text} />
       </div>
     );
   }
@@ -51,13 +52,5 @@ class TextArea extends Component {
     );
   }
 }
-
-const Result = props => {
-  return (
-    <div className="result">
-      {props.textContent}
-    </div>
-  );
-};
 
 export default App;
