@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
+import marked from 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ""
+    };
+  }
+
+  typeHandler(t) {
+    this.setState({
+      text: marked(t)
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <TextArea />
-        <Result/>
+        <TextArea typeHandler={this.typeHandler}/>
+        <Result textContent={this.state.text}/>
       </div>
     );
   }
@@ -24,19 +38,16 @@ const Header = () => {
 class TextArea extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      text: ""
-    };
     this.typeHandler = this.typeHandler.bind(this);
   }
 
-  typeHandler(e) {
-
+  typeHandler() {
+    this.props.typeHandler(this._textValue.value);
   }
 
   render() {
     return (
-      <textarea name="mark" id="mark"></textarea>
+      <textarea ref={t=>this._textValue = t} onChange={this.typeHandler} name="mark" id="mark"></textarea>
     );
   }
 }
@@ -44,7 +55,7 @@ class TextArea extends Component {
 const Result = props => {
   return (
     <div className="result">
-    
+      {props.textContent}
     </div>
   );
 };
