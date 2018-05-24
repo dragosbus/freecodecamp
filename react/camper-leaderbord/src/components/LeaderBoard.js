@@ -18,7 +18,24 @@ export class LeaderBoard extends Component {
                         <button>All Time</button>
                     </div>
                 </div>
+                {this.props.leaderboard.map((user, i) => 
+                    <Row key={i} id={i + 1} photo={user.img} name={user.username} points30={user.recent} allTime={user.alltime}/>
+                )}
             </div>
         );
     }
 }
+
+const Row = props => {
+    return (
+        <div className="row">
+            <div>{props.id}</div>
+            <div>
+                <img src={props.photo} />
+                <p>{props.name}</p>
+            </div>
+            <div>{props.points30}</div>
+            <div>{props.allTime}</div>
+        </div>
+    );  
+};
