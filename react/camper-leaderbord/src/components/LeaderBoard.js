@@ -12,10 +12,10 @@ export class LeaderBoard extends Component {
                     <div>#</div>
                     <div>Camper Name</div>
                     <div>
-                        <button>Points In last 30 Days</button>
+                        <button onClick={this.props.fetchData30}>Points In last 30 Days</button>
                     </div>
                     <div>
-                        <button>All Time</button>
+                        <button onClick={this.props.fetchDataAllTime}>All Time</button>
                     </div>
                 </div>
                 {this.props.leaderboard.map((user, i) => 
@@ -30,7 +30,7 @@ const Row = props => {
     return (
         <div className="row">
             <div>{props.id}</div>
-            <div>
+            <div className="user-info">
                 <img src={props.photo} />
                 <p>{props.name}</p>
             </div>

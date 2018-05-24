@@ -38,9 +38,55 @@
   font-size: 1.65rem;
 }
 
+.columns div:first-child {
+  width: 5%;
+  margin-left: 1%;
+}
+
+.columns div:nth-child(3),
+.columns div:last-child {
+  text-align: center;
+  text-align: right;
+}
+
 .columns button {
   background: none;
   border: none;
   color: rgb(32, 95, 177);
   cursor: pointer;
 }
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.row div {
+  width: 20%;
+  margin: 1rem auto;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.row div:first-child {
+  width: 5%;
+  margin-left: 1%;
+}
+
+.row div:nth-child(3),
+.row div:last-child {
+  text-align: center;
+}
+
+.user-info img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.user-info p {
+  margin-left: auto;
+}
+
