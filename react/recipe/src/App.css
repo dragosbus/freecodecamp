@@ -8,3 +8,13 @@
   color: white;
   box-shadow: 0 0 20px rgba(0,0,0,0.25);
 }
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 2.5rem;
+}
+
+.modal {
+  display: none;
+}

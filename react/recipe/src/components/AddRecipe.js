@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 
+export const AddRecipeBtn = props => {
+    return (
+        <button className="btn primary">Add Recipe</button>
+    );  
+};
+
 export class AddRecipeModal extends Component {
     render() {
         return (
