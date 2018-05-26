@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 
 export const AddRecipeBtn = props => {
     return (
-        <button className="btn primary">Add Recipe</button>
+        <button onClick={props.toggleModal} className="btn primary">Add Recipe</button>
     );  
 };
 
 export class AddRecipeModal extends Component {
     render() {
         return (
-            <div className="modal">
+            <div className="modal" style={{display: this.props.modalOn ? "block" : "none"}}>
                 <div className="modal-header">
                     <h3>Add Recipe</h3>
-                    <button className="close-modal">x</button>
+                    <button onClick={this.props.toggleModal} className="close-modal">x</button>
                 </div>
                 <div className="body-modal">
                     <div>
@@ -27,7 +27,7 @@ export class AddRecipeModal extends Component {
                 </div>
                 <div className="footer-modal">
                     <button className="btn">Add Recipe</button>
-                    <button className="btn">Close</button>
+                    <button onClick={this.props.toggleModal} className="btn">Close</button>
                 </div>
             </div>
         );
