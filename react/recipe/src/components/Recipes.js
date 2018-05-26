@@ -10,3 +10,9 @@ export class Recipes extends Component {
         );
     }
 }
+
+const Recipe = props => {
+    return (
+        <li className="recipes"></li>
+    );  
+};

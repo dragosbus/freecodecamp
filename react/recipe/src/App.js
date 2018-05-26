@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOn: false
+      modalOn: false,
+      recipes: []
     };
     this.toggleModal = this.toggleModal.bind(this);
   }
