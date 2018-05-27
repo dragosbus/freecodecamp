@@ -16,6 +16,7 @@ class App extends Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.addRecipe = this.addRecipe.bind(this);
     this.addRecipeToLocalStorage = this.addRecipeToLocalStorage.bind(this);
+    this.showRecipeInfo = this.showRecipeInfo.bind(this);
   }
 
   addRecipeToLocalStorage(recipe) {
@@ -48,11 +49,19 @@ class App extends Component {
     });
   }
 
+  showRecipeInfo(e) {
+    if (e.target.tagName === 'LI') {
+      e.target.querySelector('.info-recipe').classList.toggle("show-info");
+    } else if (e.target.tagName === 'H4') {
+      e.target.nextSibling.classList.toggle("show-info");
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Recipes recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes}/>
+        <Recipes showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes}/>
         <AddRecipeBtn toggleModal={this.toggleModal}/>
         <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe}/>
       </div>
