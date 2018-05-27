@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-export class Recipes extends Component {
-    render() {
-        return (
-            <ul className="recipes">
-            
-            </ul>
-        );
-    }
-}
+export const Recipes = props => {
+    return (
+        <ul className="recipes">
+            {props.recipes.map((r, i) => <Recipe name={r.name}/>)}
+        </ul>
+    );
+};
 
 const Recipe = props => {
     return (
-        <li className="recipes"></li>
+        <li className="recipes">{props.name}</li>
     );  
 };
