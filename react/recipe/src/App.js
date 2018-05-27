@@ -11,10 +11,20 @@ class App extends Component {
     this.state = {
       modalOn: false,
       recipes: [],
-      id: 1
+      id: localStorage.recipes && JSON.parse(localStorage.recipes).length > 0 ? JSON.parse(localStorage.recipes)[JSON.parse(localStorage.recipes).length - 1].id + 1 : 1
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.addRecipe = this.addRecipe.bind(this);
+    this.addRecipeToLocalStorage = this.addRecipeToLocalStorage.bind(this);
+  }
+
+  addRecipeToLocalStorage(recipe) {
+    if (!localStorage.recipes) {
+      localStorage.recipes = JSON.stringify([]);
+    }
+    let recipesFromLocalStorage = JSON.parse(localStorage.recipes);
+    recipesFromLocalStorage.push(recipe);
+    localStorage.recipes = JSON.stringify(recipesFromLocalStorage);
   }
 
   addRecipe(name, ingredients) {
@@ -24,9 +34,10 @@ class App extends Component {
       name: name.value,
       ingredients: ingredientsArr
     }
+    this.addRecipeToLocalStorage(newRecipe);
     this.setState(prevState => {
       return {
-        recipes: prevState.recipes.concat(newRecipe)
+        recipes: prevState.recipes.concat(JSON.parse(localStorage.recipes))
       }
     });
   }
@@ -41,7 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Recipes recipes={this.state.recipes}/>
+        <Recipes recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes}/>
         <AddRecipeBtn toggleModal={this.toggleModal}/>
         <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe}/>
       </div>
