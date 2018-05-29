@@ -41,6 +41,7 @@ class App extends Component {
       name: name.value,
       ingredients: ingredientsArr
     }
+    console.log(newRecipe)
     this.setState(prevState => {
       return {
         recipes: prevState.recipes.concat(newRecipe)
@@ -67,7 +68,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Recipes ingredients={[]} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes}/>
+        <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes}/>
         <AddRecipeBtn toggleModal={this.toggleModal}/>
         <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe}/>
       </div>
