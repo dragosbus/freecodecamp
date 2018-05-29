@@ -4,7 +4,7 @@ import React from 'react';
 export const Recipes = props => {
     return (
         <ul className="recipes">
-            {props.recipes.map((r, i) => <Recipe showInfo={props.showInfo} key={i} name={r.name}/>)}
+            {props.recipes.map((r, i) => <Recipe showInfo={props.showInfo} key={i} name={r.name} ingredients={props.ingredients}/>)}
         </ul>
     );
 };
@@ -15,7 +15,9 @@ const Recipe = props => {
             <h4>{props.name}</h4>
             <div className="info-recipe">
                 <h3>Ingredients</h3>
-                <ul></ul>
+                <ul>
+                    {props.ingredients.map((ingr, i) => <li key={i}>{ingr}</li>)}
+                </ul>
             </div>
         </li>
     );  
