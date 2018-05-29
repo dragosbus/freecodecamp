@@ -155,6 +155,20 @@
   display: block;
 }
 
+.recipe-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.recipe-actions .delete {
+  margin-right: 2rem;
+  background: rgb(177, 55, 55);
+  color: #fff;
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;

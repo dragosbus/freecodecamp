@@ -15,7 +15,11 @@ const Recipe = props => {
             <h4>{props.name}</h4>
             <div className="info-recipe">
                 <h3>Ingredients</h3>
-                <Ingredients data={props.data}/>
+                <Ingredients data={props.data} />
+                <div className="recipe-actions">
+                    <button className="btn delete">Delete</button>
+                    <button className="btn edit">Edit</button>
+                </div>
             </div>
         </li>
     );  
