@@ -17,6 +17,7 @@ class App extends Component {
     this.addRecipe = this.addRecipe.bind(this);
     this.addRecipeToLocalStorage = this.addRecipeToLocalStorage.bind(this);
     this.showRecipeInfo = this.showRecipeInfo.bind(this);
+    this.deleteRecipe = this.deleteRecipe.bind(this);
   }
 
   addRecipeToLocalStorage(recipe) {
@@ -64,11 +65,22 @@ class App extends Component {
     }
   }
 
+  deleteRecipe(e) {
+    let data = JSON.parse(localStorage.recipes);
+    let idRecipe = +e.target.parentNode.parentNode.parentNode.id;
+    data.splice(idRecipe-1, 1);
+    localStorage.recipes = JSON.stringify(data);
+
+    this.setState({
+      recipes: localStorage.recipes
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes}/>
+        <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes} deleteRecipe={this.deleteRecipe}/>
         <AddRecipeBtn toggleModal={this.toggleModal}/>
         <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe}/>
       </div>
