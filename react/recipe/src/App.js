@@ -59,10 +59,11 @@ class App extends Component {
 
   showRecipeInfo(e) {
     if (e.target.tagName === 'LI') {
-      e.target.querySelector('.info-recipe').classList.toggle("show-info");
+      document.querySelector('.info-recipe').classList.toggle("show-info");
     } else if (e.target.tagName === 'H4') {
       e.target.nextSibling.classList.toggle("show-info");
     }
+    console.log(e.target);
   }
 
   deleteRecipe(e) {
