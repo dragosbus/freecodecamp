@@ -149,10 +149,14 @@
 .info-recipe {
   display: none;
   background: #fff;
+  cursor: default;
 }
 
 .show-info {
   display: block;
+  animation-name: show-info-recipe;
+  animation-duration: 0.55s;
+  animation-timing-function: ease-in;
 }
 
 .recipe-actions {
@@ -177,5 +181,14 @@
   100%{
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes show-info-recipe {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
   }
 }

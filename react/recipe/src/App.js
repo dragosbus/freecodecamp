@@ -36,6 +36,14 @@ class App extends Component {
     this.addRecipeToLocalStorage(data.concat(this.state.recipes));
   }
 
+  componentDidMount() {
+    this.setState(prevState=>{
+      return {
+        recipes: prevState.recipes.concat(JSON.parse(localStorage.recipes))
+      }
+    });
+  }
+
   addRecipe(name, ingredients) {
     let ingredientsArr = ingredients.value.split(',');
     let newRecipe = {
@@ -76,6 +84,11 @@ class App extends Component {
 
   editRecipe(e) {
     this.toggleModal();
+    let idClicked = +e.target.parentNode.parentNode.parentNode.id;
+    let dataForEdit = this.state.recipes.filter(data=>data.id == idClicked)
+    console.log(dataForEdit)
+    console.log(idClicked)
+    console.log(this.state.recipes)
   }
 
   render() {
