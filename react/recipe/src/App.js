@@ -18,6 +18,7 @@ class App extends Component {
     this.addRecipeToLocalStorage = this.addRecipeToLocalStorage.bind(this);
     this.showRecipeInfo = this.showRecipeInfo.bind(this);
     this.deleteRecipe = this.deleteRecipe.bind(this);
+    this.editRecipe = this.editRecipe.bind(this);
   }
 
   addRecipeToLocalStorage(recipe) {
@@ -42,7 +43,6 @@ class App extends Component {
       name: name.value,
       ingredients: ingredientsArr
     }
-    console.log(newRecipe)
     this.setState(prevState => {
       return {
         recipes: prevState.recipes.concat(newRecipe)
@@ -63,7 +63,6 @@ class App extends Component {
     } else if (e.target.tagName === 'H4') {
       e.target.nextSibling.classList.toggle("show-info");
     }
-    console.log(e.target);
   }
 
   deleteRecipe(e) {
@@ -77,11 +76,15 @@ class App extends Component {
     });
   }
 
+  editRecipe(e) {
+    this.toggleModal();
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes} deleteRecipe={this.deleteRecipe}/>
+        <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes} deleteRecipe={this.deleteRecipe} editRecipe={this.editRecipe}/>
         <AddRecipeBtn toggleModal={this.toggleModal}/>
         <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe}/>
       </div>
