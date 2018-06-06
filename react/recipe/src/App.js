@@ -75,6 +75,10 @@ class App extends Component {
     let data = JSON.parse(localStorage.recipes);
     let idRecipe = +e.target.parentNode.parentNode.parentNode.id;
     data.splice(idRecipe-1, 1);
+    //reset the id in order by index
+    for(let i=0;i<data.length;i++) {
+      data[i].id = i+1;
+    }
     localStorage.recipes = JSON.stringify(data);
 
     this.setState({
@@ -85,10 +89,7 @@ class App extends Component {
   editRecipe(e) {
     this.toggleModal();
     let idClicked = +e.target.parentNode.parentNode.parentNode.id;
-    let dataForEdit = this.state.recipes.filter(data=>data.id == idClicked)
-    console.log(dataForEdit)
-    console.log(idClicked)
-    console.log(this.state.recipes)
+    let dataForEdit = this.state.recipes.filter(data=>data.id == idClicked)[0];
   }
 
   render() {
