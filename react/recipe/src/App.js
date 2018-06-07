@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       modalOn: false,
       recipes: [],
+      modalForAddOrEdit: 0,
       id: localStorage.recipes && JSON.parse(localStorage.recipes).length > 0 ? JSON.parse(localStorage.recipes)[JSON.parse(localStorage.recipes).length - 1].id + 1 : 1
     };
     this.toggleModal = this.toggleModal.bind(this);
@@ -61,7 +62,8 @@ class App extends Component {
 
   toggleModal() {
     this.setState({
-      modalOn: !this.state.modalOn
+      modalOn: !this.state.modalOn,
+      modalForAddOrEdit: 0
     });
   }
 
@@ -89,7 +91,10 @@ class App extends Component {
   editRecipe(e) {
     this.toggleModal();
     let idClicked = +e.target.parentNode.parentNode.parentNode.id;
-    let dataForEdit = this.state.recipes.filter(data=>data.id == idClicked)[0];
+    let dataForEdit = this.state.recipes.filter(data=>data.id === idClicked)[0];
+    this.setState({
+      modalForAddOrEdit: 1
+    });
   }
 
   render() {
@@ -98,7 +103,7 @@ class App extends Component {
         <Header />
         <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes} deleteRecipe={this.deleteRecipe} editRecipe={this.editRecipe}/>
         <AddRecipeBtn toggleModal={this.toggleModal}/>
-        <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe}/>
+        <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe} whichModal={this.state.modalForAddOrEdit}/>
       </div>
     );
   }

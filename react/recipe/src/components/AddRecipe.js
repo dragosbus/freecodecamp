@@ -18,7 +18,7 @@ export class AddRecipeModal extends Component {
             <div className="overlay" style={{ display: this.props.modalOn ? "block" : "none" }}>
                 <div className="modal">
                     <div className="modal-header">
-                        <h3>Add Recipe</h3>
+                        <h3>{this.props.whichModal ? "Edit Recipe" : "Add Recipe"}</h3>
                         <button onClick={this.props.toggleModal} className="close-modal">x</button>
                     </div>
                     <div className="body-modal">
@@ -32,7 +32,7 @@ export class AddRecipeModal extends Component {
                         </div>
                     </div>
                     <div className="footer-modal">
-                        <button className="btn" onClick={this.addRecipe.bind(this)}>Add Recipe</button>
+                        <button className="btn" onClick={this.addRecipe.bind(this)}>{this.props.whichModal ? "Edit Recipe" : "Add Recipe"}</button>
                         <button onClick={this.props.toggleModal} className="btn">Close</button>
                     </div>
                 </div>
