@@ -12,14 +12,18 @@ class App extends Component {
       modalOn: false,
       recipes: [],
       modalForAddOrEdit: 0,
+      dataForEdit:'',
+      dataForEditId:0,
       id: localStorage.recipes && JSON.parse(localStorage.recipes).length > 0 ? JSON.parse(localStorage.recipes)[JSON.parse(localStorage.recipes).length - 1].id + 1 : 1
     };
-    this.toggleModal = this.toggleModal.bind(this);
+    this.toggleModalForAdd = this.toggleModalForAdd.bind(this);
+    this.toggleModalForEdit = this.toggleModalForEdit.bind(this);
     this.addRecipe = this.addRecipe.bind(this);
     this.addRecipeToLocalStorage = this.addRecipeToLocalStorage.bind(this);
     this.showRecipeInfo = this.showRecipeInfo.bind(this);
     this.deleteRecipe = this.deleteRecipe.bind(this);
     this.editRecipe = this.editRecipe.bind(this);
+    this.getDataForEditId = this.getDataForEditId.bind(this);
   }
 
   addRecipeToLocalStorage(recipe) {
@@ -60,10 +64,17 @@ class App extends Component {
     this.addRecipeToLocalStorage(JSON.parse(localStorage.recipes).concat(newRecipe));
   }
 
-  toggleModal() {
+  toggleModalForAdd() {
     this.setState({
       modalOn: !this.state.modalOn,
       modalForAddOrEdit: 0
+    });
+  }
+
+  toggleModalForEdit() {
+    this.setState({
+      modalOn: !this.state.modalOn,
+      modalForAddOrEdit: 1
     });
   }
 
@@ -88,22 +99,35 @@ class App extends Component {
     });
   }
 
-  editRecipe(e) {
-    this.toggleModal();
+  getDataForEditId(e) {
+    this.toggleModalForEdit();
     let idClicked = +e.target.parentNode.parentNode.parentNode.id;
-    let dataForEdit = this.state.recipes.filter(data=>data.id === idClicked)[0];
+    let dataForEdit = this.state.recipes[idClicked-1]
     this.setState({
-      modalForAddOrEdit: 1
+      dataForEdit: dataForEdit,
+      dataForEditId: idClicked-1
     });
+  }
+
+  editRecipe(e) {
+    this.toggleModalForEdit();
+     
+    let name = document.getElementById('recipe-name');
+    let ingredients = document.getElementById('ingredients');
+    this.state.dataForEdit.name = name.value;
+    this.state.dataForEdit.ingredients = ingredients.value.split(',');
+    this.state.recipes.splice(this.state.dataForEditId, 0);
+    console.log(this.state.recipes);
+    this.addRecipeToLocalStorage(this.state.recipes)
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes} deleteRecipe={this.deleteRecipe} editRecipe={this.editRecipe}/>
-        <AddRecipeBtn toggleModal={this.toggleModal}/>
-        <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModal} addRecipe={this.addRecipe} whichModal={this.state.modalForAddOrEdit}/>
+        <Recipes data={JSON.parse(localStorage.recipes)} showInfo={this.showRecipeInfo} recipes={localStorage.recipes ? JSON.parse(localStorage.recipes) : this.state.recipes} deleteRecipe={this.deleteRecipe} editRecipe={this.getDataForEditId}/>
+        <AddRecipeBtn toggleModal={this.toggleModalForAdd}/>
+        <AddRecipeModal modalOn={this.state.modalOn} toggleModal={this.toggleModalForEdit} addRecipe={this.addRecipe} whichModal={this.state.modalForAddOrEdit} editRecipe={this.editRecipe}/>
       </div>
     );
   }

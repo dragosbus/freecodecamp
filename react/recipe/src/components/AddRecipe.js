@@ -28,11 +28,11 @@ export class AddRecipeModal extends Component {
                         </div>
                         <div>
                             <label htmlFor="ingredients">Ingredients</label>
-                            <textarea id="Ingredients" placeholder="Enter Ingredients, Separated by Commas" ref={ingr=>this._ingredients=ingr}></textarea>
+                            <textarea id="ingredients" placeholder="Enter Ingredients, Separated by Commas" ref={ingr=>this._ingredients=ingr}></textarea>
                         </div>
                     </div>
                     <div className="footer-modal">
-                        <button className="btn" onClick={this.addRecipe.bind(this)}>{this.props.whichModal ? "Edit Recipe" : "Add Recipe"}</button>
+                        <button className="btn" onClick={this.props.whichModal ? this.props.editRecipe:this.addRecipe.bind(this)}>{this.props.whichModal ? "Edit Recipe" : "Add Recipe"}</button>
                         <button onClick={this.props.toggleModal} className="btn">Close</button>
                     </div>
                 </div>
